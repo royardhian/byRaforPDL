@@ -1,0 +1,7 @@
+{
+  "name": "byRaforPDL",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
