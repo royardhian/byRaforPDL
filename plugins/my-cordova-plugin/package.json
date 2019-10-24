@@ -1,0 +1,55 @@
+{
+  "_from": "dwl-cordova-plugin-template",
+  "_id": "dwl-cordova-plugin-template@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-Eg0Dqw8WaJlKeazGhvIhCANcxeA=",
+  "_location": "/dwl-cordova-plugin-template",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "dwl-cordova-plugin-template",
+    "name": "dwl-cordova-plugin-template",
+    "escapedName": "dwl-cordova-plugin-template",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/dwl-cordova-plugin-template/-/dwl-cordova-plugin-template-1.0.0.tgz",
+  "_shasum": "120d03ab0f1668994a79acc686f22108035cc5e0",
+  "_spec": "dwl-cordova-plugin-template",
+  "_where": "/Users/Administrator/Documents/Projects/itad02/GIT/byRaforPDL",
+  "author": {
+    "name": "Dhaval Rathod"
+  },
+  "bugs": {
+    "url": "https://github.com/driftyco/cordova-plugin-template/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-template",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "A starting point for a Cordova Plugin",
+  "homepage": "https://github.com/driftyco/cordova-plugin-template#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "dwl-cordova-plugin-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/cordova-plugin-template.git"
+  },
+  "version": "1.0.0"
+}
