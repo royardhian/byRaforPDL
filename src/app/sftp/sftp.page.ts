@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 declare var JJsftp: any;
+declare var window: any;
 
 @Component({
   selector: 'app-Sftp',
@@ -28,8 +29,12 @@ export class SftpPage {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.loginForm.value);
-    const mySftp = new JJsftp('host', 'user', 'password');
-    mySftp.download('serverPath', 'localPath', [true, this.successCallback, this.errorCallback]);
+    console.warn(this.loginForm);
+    
+    window.MyCordovaPlugin.echo(this.loginForm.value, function(callback: any) { 
+      //callback 
+      this.successCallback=callback;
+      console.warn(callback);
+    });
   }
 }
