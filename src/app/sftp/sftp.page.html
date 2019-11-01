@@ -7,46 +7,51 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <label>
+    <ion-label>
       User Name:
-      <input type="text" formControlName="userName" required>
-    </label>
+      <ion-input type="text" formControlName="userName" required></ion-input>
+    </ion-label>
 
-    <label>
+    <ion-label>
       Password:
-      <input type="password" formControlName="password">
-    </label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-label>
 
     <div formGroupName="server">
       <h3>Server Sftp</h3>
 
-      <label>
+      <ion-label>
         ip:
-        <input type="text" formControlName="ip">
-      </label>
+        <ion-input type="text" formControlName="ip"></ion-input>
+      </ion-label>
 
-      <label>
+      <ion-label>
         port:
-        <input type="text" formControlName="port">
-      </label>
+        <ion-input type="text" formControlName="port"></ion-input>
+      </ion-label>
 
     </div>
 
-    <button type="submit">Submit</button>
+    <ion-button type="submit">Submit</ion-button>
   </form>
 
   <hr>
 
-  <p>
+  <div>
     Form Value: {{ loginForm.value | json }}
-  </p>
-  <p>
+  </div>
+  <ion-item>
+    <ion-label position="stacked">Summary</ion-label>
+    <ion-textarea placeholder="Tap here" 
+    [(ngModel)]="successCallback" name="note" ></ion-textarea>
+  </ion-item>
+  <div>
     successCallback Value: {{ successCallback }}
-  </p>
-  <p>
+  </div>
+  <div>
     errorCallback Value: {{ errorCallback }}
-  </p>
+  </div>
 
 </ion-content>

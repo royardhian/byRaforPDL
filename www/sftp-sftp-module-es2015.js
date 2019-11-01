@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      SFTP\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n    <label>\n      User Name:\n      <input type=\"text\" formControlName=\"userName\" required>\n    </label>\n\n    <label>\n      Password:\n      <input type=\"password\" formControlName=\"password\">\n    </label>\n\n    <div formGroupName=\"server\">\n      <h3>Server Sftp</h3>\n\n      <label>\n        ip:\n        <input type=\"text\" formControlName=\"ip\">\n      </label>\n\n      <label>\n        port:\n        <input type=\"text\" formControlName=\"port\">\n      </label>\n\n    </div>\n\n    <button type=\"submit\">Submit</button>\n  </form>\n\n  <hr>\n\n  <p>\n    Form Value: {{ loginForm.value | json }}\n  </p>\n  <p>\n    successCallback Value: {{ successCallback }}\n  </p>\n  <p>\n    errorCallback Value: {{ errorCallback }}\n  </p>\n\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      SFTP\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class=\"ion-padding\">\n  <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n    <ion-label>\n      User Name:\n      <ion-input type=\"text\" formControlName=\"userName\" required></ion-input>\n    </ion-label>\n\n    <ion-label>\n      Password:\n      <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n    </ion-label>\n\n    <div formGroupName=\"server\">\n      <h3>Server Sftp</h3>\n\n      <ion-label>\n        ip:\n        <ion-input type=\"text\" formControlName=\"ip\"></ion-input>\n      </ion-label>\n\n      <ion-label>\n        port:\n        <ion-input type=\"text\" formControlName=\"port\"></ion-input>\n      </ion-label>\n\n    </div>\n\n    <ion-button type=\"submit\">Submit</ion-button>\n  </form>\n\n  <hr>\n\n  <div>\n    Form Value: {{ loginForm.value | json }}\n  </div>\n  <ion-item>\n    <ion-label position=\"stacked\">Summary</ion-label>\n    <ion-textarea placeholder=\"Tap here\" \n    [(ngModel)]=\"successCallback\" name=\"note\" ></ion-textarea>\n  </ion-item>\n  <div>\n    successCallback Value: {{ successCallback }}\n  </div>\n  <div>\n    errorCallback Value: {{ errorCallback }}\n  </div>\n\n</ion-content>"
 
 /***/ }),
 
@@ -81,9 +81,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let SftpPage = class SftpPage {
-    constructor(fb) {
+    constructor(fb, changeRef) {
         this.fb = fb;
+        this.changeRef = changeRef;
         this.successCallback = '';
         this.errorCallback = '';
         this.loginForm = this.fb.group({
@@ -97,17 +99,20 @@ let SftpPage = class SftpPage {
     }
     onSubmit() {
         // TODO: Use EventEmitter with form value
-        console.warn(this.loginForm);
+        //console.warn(this.loginForm);
         var self = this;
-        cordova.plugins.MyCordovaPlugin.echo(this.loginForm.value, function (callback) {
+        MyCordovaPlugin.echo(this.loginForm.value, function (callback) {
             //callback 
             self.successCallback = callback;
-            console.warn(callback);
+            self.changeRef.detectChanges();
+            //console.warn(callback);
         });
+        //console.warn(self);
     }
 };
 SftpPage.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 SftpPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -115,7 +120,7 @@ SftpPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./Sftp.page.html */ "./node_modules/raw-loader/index.js!./src/app/sftp/Sftp.page.html"),
         styles: [__webpack_require__(/*! ./Sftp.page.scss */ "./src/app/sftp/Sftp.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], SftpPage);
 
 
